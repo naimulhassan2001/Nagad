@@ -1,5 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
+import 'package:nagad/Gridview_item.dart';
 
 void main() {
   runApp(const MyApp());
@@ -29,10 +30,86 @@ class Nagad extends StatefulWidget {
 
 class _NagadState extends State<Nagad> {
   var _currentindex =0 ;
+
+  List first_gridview_item = [
+    {
+      "image": "assets/sendmoney.png",
+      "label": "Send Money"
+    },
+    {
+      "image": "assets/cashout.png",
+      "label": "Cash out"
+    },
+    {
+      "image": "assets/transfer.png" ,
+      "label": "Transfer"
+    },
+    {
+      "image": "assets/addmoney.png" ,
+      "label": "Add Money"
+    },
+
+    {
+      "image": "assets/transfer.png" ,
+      "label": "transfer"
+    },
+    {
+      "image": "assets/transfer.png" ,
+      "label": "aaa"
+    },
+    {
+      "image": "assets/more.png",
+      "label": "more"
+    },
+
+
+  ] ;
+  List second_gridview_item = [
+    {
+      "image": "assets/pay.png",
+      "label": "Merchant Pay"
+    },
+    {
+      "image": "assets/billpay.png" ,
+      "label": "Bill Pay"
+    },
+    {
+      "image": "assets/emi.png" ,
+      "label": "EMI pay"
+    },
+    {
+      "image": "assets/mela.png",
+      "label": "Nagad Mela"
+    },
+
+
+  ] ;
+  List third_gridview_item = [
+    {
+      "image": "assets/contact.png" ,
+      "label": "Contact"
+    },
+    {
+      "image": "assets/calculator.png" ,
+      "label": "Calculator"
+    },
+    {
+      "image": "assets/limit.png" ,
+      "label": "limit"
+    },
+    {
+      "image": "assets/donation.png" ,
+      "label": "Donation"
+    },
+
+
+  ] ;
+
   @override
   Widget build(BuildContext context) {
 
     var width = MediaQuery.of(context).size.width*0.2 ;
+    var gridview_item_height = MediaQuery.of(context).size.width*0.25 ;
 
     var margin = width/7 ;
 
@@ -73,7 +150,6 @@ class _NagadState extends State<Nagad> {
               Column(
                 children: [
                   Image.asset("assets/mynagad.png",height: 24, width: 24, color: Colors.black54,),
-
                   const Text('My nagad', style: TextStyle(fontSize: 12)),
                 ],
               ),
@@ -140,6 +216,7 @@ class _NagadState extends State<Nagad> {
                   )
                 ],
               ),
+
               const SizedBox(height: 10,),
               Row(
                 children: [
@@ -148,106 +225,17 @@ class _NagadState extends State<Nagad> {
                 ],
               ),
               const SizedBox(height: 10,),
-              Row(
-                children: [
-                  SizedBox(width: margin*2,),
-                  Column(
-                    children: [
-                      Container(
-                        width: width,
-                        height: width,
-                        child: Image.asset("assets/sendmoney.png"),
-                      ),
-                      const SizedBox(height: 6,),
-                      const Text("Send Money", style: TextStyle(fontSize: 12))
-                    ],
-                  ),
-                  SizedBox(width: margin,),
-                  Column(
-                    children: [
-                      Container(
-                        width: width,
-                        height:width,
-                        child: Image.asset("assets/cashout.png"),
-                      ),
-                      const SizedBox(height: 6,),
-                      const Text("Cash Out", style: TextStyle(fontSize: 12))
-                    ],
-                  ),
-                  SizedBox(width: margin,),
-                  Column(
-                    children: [
-                      Container(
-                        width: width,
-                        height: width,
-                        child: Image.asset("assets/transfer.png"),
-                      ),
-                      const SizedBox(height: 6,),
-                      const Text("Rechage", style: TextStyle(fontSize: 12),)
-                    ],
-                  ),
-                  SizedBox(width: margin,),
-                  Column(
+              Container(
+                height: gridview_item_height*2,
+                child: GridView.builder(
+                  itemCount: first_gridview_item.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4), itemBuilder: (context, index) {
 
-                    children: [
-                      Container(
-                        width: width,
-                        height: width,
-                        child: Image.asset("assets/sendmoney.png"),
-                      ),
-                      const SizedBox(height: 6,),
-                      const Text("Add Money", style: TextStyle(fontSize: 12))
-                    ],
-                  ),
-                  SizedBox(width: margin*2,),
-
-
-                ],
+                  return GridviewItem(image: first_gridview_item[index]['image'], label:  first_gridview_item[index]['label']);
+                },),
               ),
-              const SizedBox(height: 10,),
-              Row(
-                children: [
-                  SizedBox(width: margin*2,),
-                  Column(
-                    children: [
-                      Container(
-                        width: width,
-                        height: width,
-                        child: Image.asset("assets/transfer.png"),
-                      ),
-                      const SizedBox(height: 6,),
-                      const Text("Transfer", style: TextStyle(fontSize: 12))
-                    ],
-                  ),
-                  SizedBox(width: margin,),
-                  Column(
-                    children: [
-                      Container(
-                        width: width,
-                        height: width,
-                        child: Image.asset("assets/cashout.png"),
-                      ),
-                      const SizedBox(height: 6,),
-                      const Text("Cash Out", style: TextStyle(fontSize: 12))
-                    ],
-                  ),
-                  SizedBox(width: margin,),
-                  Column(
-                    children: [
-                      Container(
-                        width: width,
-                        height: width,
-                        child: Image.asset("assets/more.png"),
-                      ),
-                      const SizedBox(height: 6,),
-                      const Text("More", style: TextStyle(fontSize: 12),)
-                    ],
-                  ),
-
-
-                ],
-              ),
-              const SizedBox(height: 10,),
+              const SizedBox(height: 20,),
               Row(
                 children: [
                   SizedBox(width: margin *2,),
@@ -255,63 +243,17 @@ class _NagadState extends State<Nagad> {
                 ],
               ),
               const SizedBox(height: 10,),
-              Row(
-                children: [
-                  SizedBox(width: margin*2,),
-                  Column(
-                    children: [
-                      Container(
-                        width: width,
-                        height: width,
-                        child: Image.asset("assets/pay.png"),
-                      ),
-                      const SizedBox(height: 6,),
-                      const Text("machent pay", style: TextStyle(fontSize: 12))
-                    ],
-                  ),
-                  SizedBox(width: margin,),
-                  Column(
-                    children: [
-                      Container(
-                        width: width,
-                        height: width,
-                        child: Image.asset("assets/billpay.png"),
-                      ),
-                      const SizedBox(height: 6,),
-                      const Text("bill Pay", style: TextStyle(fontSize: 12))
-                    ],
-                  ),
-                  SizedBox(width: margin,),
-                  Column(
-                    children: [
-                      Container(
-                        width: width,
-                        height: width,
-                        child: Image.asset("assets/emi.png"),
-                      ),
-                      const SizedBox(height: 6,),
-                      const Text("EMI pay", style: TextStyle(fontSize: 12),)
-                    ],
-                  ),
-                  SizedBox(width: margin,),
-                  Column(
+              Container(
+                height: gridview_item_height,
+                child: GridView.builder(
+                  itemCount: second_gridview_item.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4), itemBuilder: (context, index) {
 
-                    children: [
-                      Container(
-                        width: width,
-                        height: width,
-                        child: Image.asset("assets/mela.png"),
-                      ),
-                      const SizedBox(height: 6,),
-                      const Text("Nagad mela", style: TextStyle(fontSize: 12))
-                    ],
-                  ),
-                  SizedBox(width: margin*2,),
-
-
-                ],
+                  return GridviewItem(image: second_gridview_item[index]['image'], label:  second_gridview_item[index]['label']);
+                },),
               ),
-              const SizedBox(height: 10,),
+              const SizedBox(height: 20,),
               Row(
                 children: [
                   SizedBox(width: margin *2,),
@@ -319,61 +261,15 @@ class _NagadState extends State<Nagad> {
                 ],
               ),
               const SizedBox(height: 10,),
-              Row(
-                children: [
-                  SizedBox(width: margin*2,),
-                  Column(
-                    children: [
-                      Container(
-                        width: width,
-                        height: width,
-                        child: Image.asset("assets/contact.png"),
-                      ),
-                      const SizedBox(height: 6,),
-                      const Text("Contact", style: TextStyle(fontSize: 12))
-                    ],
-                  ),
-                  SizedBox(width: margin,),
-                  Column(
-                    children: [
-                      Container(
-                        width: width,
-                        height: width,
-                        child: Image.asset("assets/calculator.png"),
-                      ),
-                      const SizedBox(height: 6,),
-                      const Text("Calculator", style: TextStyle(fontSize: 12))
-                    ],
-                  ),
-                  SizedBox(width: margin,),
-                  Column(
-                    children: [
-                      Container(
-                        width: width,
-                        height: width,
-                        child: Image.asset("assets/limit.png"),
-                      ),
-                      const SizedBox(height: 6,),
-                      const Text("Limit", style: TextStyle(fontSize: 12),)
-                    ],
-                  ),
-                  SizedBox(width: margin,),
-                  Column(
+              Container(
+                height: gridview_item_height,
+                child: GridView.builder(
+                  itemCount: third_gridview_item.length,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 4), itemBuilder: (context, index) {
 
-                    children: [
-                      Container(
-                        width: width,
-                        height: width,
-                        child: Image.asset("assets/donation.png"),
-                      ),
-                      const SizedBox(height: 6,),
-                      const Text("Donation", style: TextStyle(fontSize: 12))
-                    ],
-                  ),
-                  SizedBox(width: margin*2,),
-
-
-                ],
+                  return GridviewItem(image: third_gridview_item[index]['image'], label:  third_gridview_item[index]['label']);
+                },),
               ),
               const SizedBox(height: 30,),
 
@@ -386,5 +282,3 @@ class _NagadState extends State<Nagad> {
     );
   }
 }
-
-
