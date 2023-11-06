@@ -8,10 +8,20 @@ class ContactPage extends StatelessWidget {
   const ContactPage(this.contact, {super.key});
 
   @override
-  Widget build(BuildContext context) => MaterialApp(
+  Widget build(BuildContext context) =>
+        MaterialApp(
+
+
+
         home: Scaffold(
-            appBar: AppBar(title: Text(contact.displayName)),
-            body: Column(children: [
+          appBar: AppBar(
+            title: Text(contact.displayName),
+            leading: IconButton(
+              icon: const Icon(Icons.arrow_back, ),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ),
+          body: Column(children: [
               const SizedBox(
                 height: 20,
               ),
