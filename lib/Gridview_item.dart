@@ -20,8 +20,7 @@ class GridviewItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Expanded(flex: 9,child: Center(child: Image.asset(image))),
-              const SizedBox(height: 6,),
-              Expanded(flex: 2,child: Center(child: Text(label)))
+              Expanded(flex: 3,child: Center(child: Text(label)))
             ],
           ),
         ),

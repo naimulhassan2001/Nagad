@@ -1,6 +1,7 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:nagad/Gridview_item.dart';
+import 'package:nagad/screen/send_money.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,7 +43,7 @@ class _NagadState extends State<Nagad> {
     },
     {
       "image": "assets/transfer.png" ,
-      "label": "Transfer"
+      "label": "Rechage"
     },
     {
       "image": "assets/addmoney.png" ,
@@ -55,7 +56,7 @@ class _NagadState extends State<Nagad> {
     },
     {
       "image": "assets/transfer.png" ,
-      "label": "aaa"
+      "label": "policy"
     },
     {
       "image": "assets/more.png",
@@ -178,7 +179,7 @@ class _NagadState extends State<Nagad> {
                               const Text("ডাক বিভাগের ডিজিটাল লেনদেন", style: TextStyle(fontSize: 14, color: Colors.white),),
                               const SizedBox(height: 25,),
                               Container(
-                                width: MediaQuery.of(context).size.width *0.5,
+                                width: 180 ,
 
                                 alignment: Alignment.center,
 
@@ -230,9 +231,14 @@ class _NagadState extends State<Nagad> {
                 child: GridView.builder(
                   itemCount: first_gridview_item.length,
                   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 4), itemBuilder: (context, index) {
+                      crossAxisCount: 4),
+                  itemBuilder: (context, index) {
 
-                  return GridviewItem(image: first_gridview_item[index]['image'], label:  first_gridview_item[index]['label']);
+                  return GestureDetector(
+                  onTap: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => SendMoney(),))  ;
+                  },
+                      child: GridviewItem(image: first_gridview_item[index]['image'], label:  first_gridview_item[index]['label']));
                 },),
               ),
               const SizedBox(height: 20,),
